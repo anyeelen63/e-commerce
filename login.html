@@ -34,19 +34,18 @@
       padding: 15px;
       margin: auto;
     }
-  </style>
+  </style>  
 </head>
 
 <body class="text-center">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 08/08/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
-
+<form>
+  <input type="text" id="nombre">
+  <input type="password" id="pass">
+  <button id="login" onclick="validar()" type="button"> Entrar </button>
+</form>
+<!-- se valida y redireciona por javascript sin poner contenido en el form, como el action -->
+<!-- las validaciones y redireccion se hacen desde el -->
+<!-- especificado type button para que no lo tome como submit -->
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
