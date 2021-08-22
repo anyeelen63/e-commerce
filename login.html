@@ -6,46 +6,48 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
+  <meta name="generator" content="Jekyll v3.8.5">
   <title>eMercado - Todo lo que busques está aquí</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <style>
-    html, body{
-      height: 100%;
-    }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
 
-    body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: #f5f5f5;
-    }
-
-    .signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: auto;
-    }
-  </style>  
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+  </style> 
+      <link href="signin.css" rel="stylesheet"> 
 </head>
-
 <body class="text-center">
-<form>
-  <input type="text" id="nombre">
-  <input type="password" id="pass">
-  <button id="login" onclick="validar()" type="button"> Entrar </button>
+
+  <form class="form-signin">
+<img class="mb-4" src="img/login.png" alt="" width="150" height="90">
+<h1 class="h3 mb-3 font-weight-normal">Ingresar</h1>
+<label for="inputEmail" class="sr-only">Email</label>
+<input type="email" id="Email" class="form-control" placeholder="Email address" required autofocus>
+<label for="inputPassword" class="sr-only">Contraseña</label>
+<input type="password" id="Password" class="form-control" placeholder="Password" required>
+<div class="checkbox mb-3">
+  <label>
+    <input type="checkbox" value="remember-me"> Recordar
+  </label>
+</div>
+<button class="btn btn-lg btn-primary btn-block" id="login" onclick="validar()" type="button">Entrar</button>
 </form>
-<!-- se valida y redireciona por javascript sin poner contenido en el form, como el action -->
-<!-- las validaciones y redireccion se hacen desde el -->
-<!-- especificado type button para que no lo tome como submit -->
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
