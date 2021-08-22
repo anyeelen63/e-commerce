@@ -1,5 +1,5 @@
 var productsArray = [];
-
+// se crea la variable de products array para poder utilizarla localmente
 function showProductsList(array){
     
     let htmlContentToAppend = "";
@@ -26,8 +26,11 @@ function showProductsList(array){
         
         document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
      }
+    //  se obtienen los elementos del listado de productos
 }
-
+// se utilizo el codigo de categories, 
+// se cambiaron los atributos de entrada segun lo contenido en en json
+// se cambio lo relacionado a cat por prod
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function(resultObj){
@@ -38,3 +41,4 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 });
+// se llama al json de products para mostrar el listado de productos
