@@ -5,7 +5,14 @@ var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
-var productsArray = [];
+
+//se crean variables globales para currentProductsArray, CurrentSortCriteria y minimo y maximo
+//todas undefined
+//Se crean constantes para los criterios de orden, con flecha para identificar
+
+//se crea la función sortProducts y se pasan como criterio el orden descendente por cant.vendida
+//ascendente por precio y descendente por precio
+//no eran strings asi que no debio usarse parseInt
 
 function sortProducts(criteria, array){
     let result = [];
@@ -31,7 +38,9 @@ function sortProducts(criteria, array){
     return result;
 }
 
-
+//en ShowProductList se cambian los valores del for por las variables de productsArray
+//Se establece el filtro para min y maximo, se pasan los valores de productcost a entero
+//para que pueda compararlos
 
 function showProductsList(){
     
@@ -64,6 +73,7 @@ function showProductsList(){
      }
 }
 
+//se crea sortAndShowProducts para ordenar la lista
 function sortAndShowProducts(sortCriteria, productsArray){
     currentSortCriteria = sortCriteria;
 
@@ -76,13 +86,16 @@ function sortAndShowProducts(sortCriteria, productsArray){
     showProductsList();
 }
 
+//se invoca a sortAndShowProducts definido anteriormente, pasando por parámetro el
+//criterio de ordenamiento por defecto en precio ascendente. 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             sortAndShowProducts(ORDER_ASC_BY_PROD_COST, resultObj.data);
         }
     });
-
+//Se llaman los id del html para asignarle la función de sortAndShowProducts 
+//con los criterios personalizados para cada uno
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowProducts(ORDER_ASC_BY_PROD_COST);
     });
@@ -92,7 +105,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("sortByCount").addEventListener("click", function(){
         sortAndShowProducts(ORDER_DESC_BY_PROD_SOLD);
     });
-    
+//Se llama el id para limpiar filtro y los id de los valores de entrada para
+//asignarles valor nulo y mostrar la lista original
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
         document.getElementById("rangeFilterCountMax").value = "";
@@ -102,9 +116,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         showProductsList();
     });
+//Se llama el id de filtro por precio asignado en el html de products y se le asigna la funcion
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
-        //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-        //de productos por categoría.
+//Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
+//de productos por categoría.
         minCount = document.getElementById("rangeFilterCountMin").value;
         maxCount = document.getElementById("rangeFilterCountMax").value;
 
@@ -124,4 +139,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         showProductsList();
     });
+//Muestra el listado con los filtros aplicados
 });
