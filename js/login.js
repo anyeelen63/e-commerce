@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 });
 
     function validar(){ 
-        let Email = document.getElementById("Email").value;
+        let Usuario = document.getElementById("Usuario").value;
         let Password = document.getElementById("Password").value;
          
-         if (Email.length < 8 || Email.length >20 ) {
+         if (Usuario.length < 8 || Usuario.length >20 ) {
         alert('El usuario debe estar entre 8 y 20 caracteres');
         return;
     }
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
       //valida el ingreso de caracteres, de 8 a 20 por defecto, 
       //si no se cumple salta un alert y vuelve a empezar
-    if((Email !=="")&& (Password!=="")){
+    if((Usuario !=="")&& (Password!=="")){
         window.location.href="./products.html";
         //redirige al html de product con ./ porque esta en otra carpeta
         //se ejecuta con el onclick
