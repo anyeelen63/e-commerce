@@ -9,21 +9,23 @@ document.addEventListener("DOMContentLoaded", function(e){
         alert('El usuario debe estar entre 8 y 20 caracteres');
         return;
     }
-        //validacion del Email segun el largo
         if(Password.length < 8 || Password.length >20 ) {
         alert('La clave debe estar entre 8 y 20 caracteres');
         return;
-        //validacion de la contraseña segun el largo
     }
-      //valida el ingreso de caracteres, de 8 a 20 por defecto, 
-      //si no se cumple salta un alert y vuelve a empezar
     if((Usuario !=="")&& (Password!=="")){
+        setUser();
         window.location.href="./products.html";
-        //redirige al html de product con ./ porque esta en otra carpeta
-        //se ejecuta con el onclick
+
     }
     else{
         alert("debe completar los campos");
     }    
-    //alerta para el ingreso de campos vacios
+
 }
+function setUser(){
+    let Usuario = document.getElementById("Usuario").value;
+    localStorage.setItem("Usuario", Usuario);
+}
+//Se crea la funcion para guardar el usuario, se le asigna un nombre y se le ingresa el valor
+

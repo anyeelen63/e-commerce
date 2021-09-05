@@ -39,9 +39,26 @@ var getJSONData = function(url){
         return result;
     });
 }
-
+//Se crea la funcion getUser para llamar al localStorage
+//se obtiene el dato del email ingresado y pregunta si es vacio o undefined, lo setea con 
+//el usuario ingresado. Si no hay nada, redirige al login
+function getUser(){
+  let Usuario = localStorage.getItem("Usuario");
+  if(Usuario!=undefined && Usuario!=""){
+    document.getElementById("Usuario").innerHTML +=" "
+    +Usuario;
+  }
+  else{
+    window.location.href="./login.html"
+  }
+}
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-});
+  getUser();
+})
+ //Función que se ejecuta una vez que se haya lanzado el evento de
+  //que el documento se encuentra cargado, es decir, se encuentran todos los
+  //elementos HTML presentes.
+      //se llama a la funcion
