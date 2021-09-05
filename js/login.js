@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", function(e){
         let Password = document.getElementById("Password").value;
          
          if (Usuario.length < 8 || Usuario.length >20 ) {
-        alert('El usuario debe estar entre 8 y 20 caracteres');
+        alert('El usuario debe tener entre 8 y 20 caracteres');
         return;
     }
         if(Password.length < 8 || Password.length >20 ) {
-        alert('La clave debe estar entre 8 y 20 caracteres');
+        alert('La contraseña debe tener entre 8 y 20 caracteres');
         return;
     }
     if((Usuario !=="")&& (Password!=="")){
