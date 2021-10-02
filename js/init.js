@@ -45,8 +45,9 @@ var getJSONData = function(url){
 function getUser(){
   let Usuario = localStorage.getItem("Usuario");
   if(Usuario!=undefined && Usuario!=""){
-    document.getElementById("Usuario").innerHTML +=" "
+    document.getElementById("Usuario").innerHTML +=""
     +Usuario;
+    return(Usuario);
   }
   else{
     window.location.href="./login.html"
