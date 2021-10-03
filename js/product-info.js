@@ -1,14 +1,15 @@
 var product = {};
 var comentarios = [];
+let products = [];
 
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
-
     for(let i = 0; i < array.length; i++){
         let imageSrc = array[i];
 
         htmlContentToAppend += `
+
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
                 <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
@@ -28,7 +29,6 @@ function showCommentProducts(){
         
         htmlContentToAppend += `
 
-        
         <div class="media-list">
         <div class="media">
             <a href="#" class="pull-left">
@@ -44,9 +44,35 @@ function showCommentProducts(){
             </div>
         </div>
         </div>
+        `
+        document.getElementById("comentarios").innerHTML = htmlContentToAppend;
+    }
+}
 
-                `
-                document.getElementById("comentarios").innerHTML = htmlContentToAppend;
+function mostrarRelacionados(array){
+
+    let htmlContentToAppend = "";
+    for(let i = 0; i < array.length; i++){
+        let relatedProducts = array[i];
+        htmlContentToAppend += `
+
+        <a href="product-info.html" class="list-group-item list-group-item-action">
+        <div class="row">
+            <div class="col-3">
+                <img src="${products[relatedProducts].imgSrc}" alt="${products[relatedProducts].description}" class="img-thumbnail">
+            </div>
+            <div class="col">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1">${products[relatedProducts].name}</h4>
+                    <small class="text-muted"> Precio: ${products[relatedProducts].cost}${products[relatedProducts].currency}</small>
+                </div>
+                <p class="mb-1">${products[relatedProducts].description}</p>
+            </div>
+        </div>
+    </a>
+        `
+
+        document.getElementById("relacionados").innerHTML = htmlContentToAppend;
     }
 }
 
@@ -75,6 +101,14 @@ document.addEventListener("DOMContentLoaded", function(e){
             productCategoryHTML.innerHTML = product.category;
 
             showImagesGallery(product.images);
+
+            getJSONData(PRODUCTS_URL).then(function(result){
+                if (result.status === "ok")
+                {
+                    products = result.data;
+                    mostrarRelacionados(product.relatedProducts)
+                }
+            });
         }
     });
 
