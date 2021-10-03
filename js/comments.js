@@ -36,15 +36,23 @@ function showComment(){
         let comment = comments[i];
 
         htmlContentToAppend += `
-        <div class="bd-example">
-            <dl>
-            <dt>${comment.user} - ${comment.completeDate}
-            - ${drawStars(comment.score)}</dt>
-            <dd>${comment.message}</dd>
-            </dl>
+        <div class="media-list">
+        <div class="media">
+            <a href="#" class="pull-left">
+                <img src="https://static.uc.ltmcdn.com/img/web/fake-user.png" alt="100" class="rounded-circle">
+            </a>
+            <div class="media-body">
+                <strong class="text-danger">`+ comment.user+`</strong>
+                <span class="text-muted pull-right">
+                <small class="text-muted">${drawStars(comment.score)}</small>
+            </span>
+                <dt>`+comment.message+`</dt>
+                <p> `+comment.completeDate+`</p>
+            </div>
+        </div>
         </div>
         `
     }
-    document.getElementById("comentarios").innerHTML = htmlContentToAppend;
+    document.getElementById("comentarios").innerHTML += htmlContentToAppend;
     document.getElementById("formulario").reset();
 }

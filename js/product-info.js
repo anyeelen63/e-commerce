@@ -32,15 +32,15 @@ function showCommentProducts(){
         <div class="media-list">
         <div class="media">
             <a href="#" class="pull-left">
-                <img src="https://static.uc.ltmcdn.com/img/web/fake-user.png" alt="100" class="img-circle">
+                <img src="https://static.uc.ltmcdn.com/img/web/fake-user.png" alt="100" class="rounded-circle">
             </a>
             <div class="media-body">
-                <strong class="text-success">`+ comments.user+`</strong>
+                <strong class="text-danger">`+ comments.user+`</strong>
                 <span class="text-muted pull-right">
                 <small class="text-muted">${drawStars(comments.score)}</small>
             </span>
-                <p>`+comments.description+`</p>
-                <dt> `+comments.dateTime+`</dt>
+                <dt>`+comments.description+`</dt>
+                <p> `+comments.dateTime+`</p>
             </div>
         </div>
         </div>
