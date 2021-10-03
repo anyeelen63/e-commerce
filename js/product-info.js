@@ -27,13 +27,24 @@ function showCommentProducts(){
         let comments = comentarios[i];
         
         htmlContentToAppend += `
-                
-                <div>
-                <dt>${drawStars(comments.score)}</dt>
-                <p>`+ comments.description + `</p>
-                <p>`+ comments.user + `</p>
-                <p>`+ comments.dateTime + `</p>
-                </div>
+
+        
+        <div class="media-list">
+        <div class="media">
+            <a href="#" class="pull-left">
+                <img src="https://static.uc.ltmcdn.com/img/web/fake-user.png" alt="100" class="img-circle">
+            </a>
+            <div class="media-body">
+                <strong class="text-success">`+ comments.user+`</strong>
+                <span class="text-muted pull-right">
+                <small class="text-muted">${drawStars(comments.score)}</small>
+            </span>
+                <p>`+comments.description+`</p>
+                <dt> `+comments.dateTime+`</dt>
+            </div>
+        </div>
+        </div>
+
                 `
                 document.getElementById("comentarios").innerHTML = htmlContentToAppend;
     }
@@ -54,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             let productCurrencyHTML = document.getElementById("productCurrency");
             let productSoldCountHTML = document.getElementById("productSoldCount");
             let productCategoryHTML = document.getElementById("productCategory");
+            
         
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
