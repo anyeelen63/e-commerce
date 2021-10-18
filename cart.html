@@ -51,14 +51,113 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
+
+  <main role="main">
+    <div class="container mt-5">
+      <div class="text-center p-4">
+        <h2>Carrito de compras</h2>
+        <br>
+        <h4 class="text-sm-left">Artículos a comprar</h4>
+        <hr>
+      </div>
+      <table class= "table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Producto</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Moneda</th>
+          <th scope="col">Costo</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="insertCarrito">
+        </tbody>
+      </tbody>
+      </table>
+
+      <div id="insertCarrito"></div>
+
+      <br>
+      <h4 class="text-sm-left">Tipo de envío</h4>
       <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+      <fieldset class="form-group">
+        <div class="row">
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              <label class="form-check-label" for="gridRadios1">
+                Premium 2 a 5 dias (15%)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              <label class="form-check-label" for="gridRadios1">
+                Express 5 a 7 dias (7%)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                Estándar 12 a 15 dias (5%)
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <br>
+      <h4 class="text-sm-left">Dirección de envío</h4>
+      <hr>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>Calle</label>
+            <input class="form-control" id="" placeholder="Calle">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Número</label>
+            <input class="form-control" id="" placeholder="Número">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Esquina</label>
+          <input type="text" class="form-control" id="" placeholder="Esquina">
+        </div>
+
+        <br>
+        <h4 class="text-sm-left">Costos</h4>
+        <hr>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Subtotal</h6>
+              <small class="text-muted">Costo unitario del producto por cantidad</small>
+            </div>
+            <span class="text-muted" id="subtotal"> </span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Costo de envío</h6>
+              <small class="text-muted">Según el tipo de envío</small>
+            </div>
+            <span class="text-muted" id="">-</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total ($)</span>
+            <strong id="">-</strong>
+          </li>
+        </ul>
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg" type="submit">Finalizar compra</button>
+      <hr>
+
+      
+
+      <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
     </div>
-  </div>
+  </main>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
