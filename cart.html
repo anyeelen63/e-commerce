@@ -71,12 +71,12 @@
           <th scope="col">Subtotal</th>
         </tr>
       </thead>
-      <tbody id="insertCarrito">
+      <tbody id="carrito">
         </tbody>
       </tbody>
       </table>
 
-      <div id="insertCarrito"></div>
+      <div id="carrito"></div>
 
       <br>
       <h4 class="text-sm-left">Tipo de envío</h4>
@@ -143,9 +143,11 @@
             </div>
             <span class="text-muted" id="">-</span>
           </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total ($)</span>
-            <strong id="">-</strong>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Total ($)</h6>
+            </div>
+            <div class="text-muted" id="total"></div>
           </li>
         </ul>
         <hr class="mb-4">
