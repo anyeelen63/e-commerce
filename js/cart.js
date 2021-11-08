@@ -3,6 +3,7 @@ let Carrito = [];
 //funcion para actualizar el subtotal. se pasa como parametro cantidad,costo, id donde se 
 //quiere insertar el subtotal. con getElement ponemos donde queremos insertar el subtotal
 //actualizado
+//se llama a la función updateTotal
 function updateSubtotal(cantidad, costo, id){
     document.getElementById(id).innerHTML = cantidad*costo;
     updateTotal();
@@ -39,7 +40,7 @@ function showCarrito(){
 
 }
 
-
+//peticion a URL de CART_INFO para mostrar en HTML los elementos gráficos
 document.addEventListener("DOMContentLoaded", function(){
     getJSONData(CART_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")

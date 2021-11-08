@@ -11,6 +11,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
   <style>
     .bd-placeholder-img {
@@ -27,6 +28,10 @@
         font-size: 3.5rem;
       }
     }
+    .cc-img {
+        margin: 0 auto;
+    }
+</style>
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -121,6 +126,173 @@
           <label>Esquina</label>
           <input type="text" class="form-control" id="" placeholder="Esquina">
         </div>
+        
+        <div>
+          <button type="button" class="btn btn-outline-secondary btn-lg btn-block" data-toggle="modal" data-target="#staticBackdrop"> Seleccionar forma de pago </button>
+
+          <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Método de pago</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                <p>
+                  <button class="btn btn-light btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Tarjeta de crédito
+                  </button>
+                </p>
+                  <form>
+                    <div class="row collapse" id="collapseExample">
+                      <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <div class="card ">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <img class="img-fluid cc-img" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+                                        </div>
+                                    </div>
+                                    <div class="card-block">
+                                        <form role="form">
+                                            <div class="row">
+                                                <div class="col-md-12 mb-3">
+                                                    <div class="form-group col-md-12 mb-3">
+                                                      <br>
+                                                        <label class="font-weight-bold font-italic">Número de tarjeta</label>
+                                                        <div class="input-group">
+                                                            <input type="tel" class="form-control" placeholder="Ingrese un número de tarjeta válido" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-7 col-md-7">
+                                                    <div class="form-group col-md-12 mb-3">
+                                                        <label class="font-weight-bold font-italic">Vencimiento</label>
+                                                        <input type="tel" class="form-control" placeholder="MM / YY" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-5 col-md-5 float-xs-right">
+                                                    <div class="form-group col-md-12 mb-3">
+                                                        <label class="font-weight-bold font-italic">CVC</label>
+                                                        <input type="tel" class="form-control" placeholder="CVC" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 mb-3">
+                                                    <div class="form-group col-md-12 mb-3">
+                                                        <label class="font-weight-bold font-italic">Nombre del titular</label>
+                                                        <input type="text" class="form-control" placeholder="Titular de la tarjeta" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="row">
+                                            <div class="col-md-12 mb-3">
+                                                <button class="btn btn-warning btn-lg btn-block">Procesar pago</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                  </form>
+                  <p>
+                    <button class="btn btn-light btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+                      Transferencia bancaria
+                    </button>
+                  </p>
+                  <form>
+                    <div class="row collapse" id="collapseExample2">
+                      <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <div class="card ">
+                                    <div class="card-header">
+                                    </div>
+                                    <div class="card-block">
+                                        <form role="form">
+                                            <div class="row">
+                                                <div class="col-md-12 mb-3">
+                                                    <div class="form-group col-md-12 mb-3">
+                                                      <br>
+                                                        <label class="font-weight-bold font-italic">Titular de la cuenta</label>
+                                                        <div class="input-group">
+                                                            <input type="tel" class="form-control" placeholder="Ingrese el nombre del titular de la cuenta" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-7 col-md-7">
+                                                    <div class="form-group col-md-12 mb-3">
+                                                        <label for="inputGroupSelect01" class="font-weight-bold font-italic">Seleccionar</label>
+                                                        <select class="custom-select" id="inputGroupSelect01">
+                                                          <option selected>Banco</option>
+                                                          <option value="1">Brou</option>
+                                                          <option value="2">Santander</option>
+                                                          <option value="3">Itau</option>
+                                                          <option value="4">MiDinero</option>
+                                                          <option value="5">Scotiabank</option>
+                                                          <option value="6">Prex</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-group col-md-12 mb-3">
+                                                        <label for="inputGroupSelect02" class="font-weight-bold font-italic">Tipo de cuenta</label>
+                                                        <select class="custom-select" id="inputGroupSelect02">
+                                                          <option selected>Seleccionar</option>
+                                                          <option value="1">Caja de ahorro</option>
+                                                          <option value="2">Cuenta corriente</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 mb-3">
+                                                    <div class="form-group col-md-12 mb-3">
+                                                        <label class="font-weight-bold font-italic">Número de cuenta</label>
+                                                        <input type="text" class="form-control" placeholder="Número de cuenta" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="row">
+                                            <div class="col-md-12 mb-3">
+                                                <button class="btn btn-warning btn-lg btn-block">Procesar pago</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                  </form>
+                  <hr class="mb-4">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Aceptar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
         <br>
         <h4 class="text-sm-left">Costos</h4>
