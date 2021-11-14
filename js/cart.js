@@ -1,64 +1,95 @@
 let Carrito = [];
-let productCost = 0;
-let productCount = 0;
 let comissionPercentage = 0.05;
 let MONEY_SYMBOL = "$";
-let PERCENTAGE_SYMBOL = '%';
+let numeroTarjeta = document.getElementById('numeroTarjeta');
+let vencimiento = document.getElementById('vencimiento');
+let cvc = document.getElementById('cvc');
+let nombreTitular = document.getElementById('nombreTitular');
+let recordarTarjeta = document.getElementById('recordarTarjeta');
+let cuentaOrigen = document.getElementById('cuentaOrigen')
+let titularDestino = document.getElementById('titularDestino')
+let inputGroupSelect01 = document.getElementById('inputGroupSelect01')
+let inputGroupSelect02 = document.getElementById('inputGroupSelect02')
+let numeroDestino = document.getElementById('numeroDestino')
 
 
+function selectPayForm(obj){
+    document.getElementById('tarjetaCredito').addEventListener('click', function(e) {
+        cuentaOrigen.value = "";
+        titularDestino.value = "";
+        inputGroupSelect01.value = "";
+        inputGroupSelect02.value = "";
+        numeroDestino.value = "";
 
-//function selectPayForm(){
-  //  if document.getElementById("tarjetaCredito").disabled = false{
-    //    document.getElementById("transferenciaBancaria").disabled = true;
-    //}
-//document.getElementById("transferenciaBancaria").disabled = true;
-//document.getElementById("tarjetaCredito").disabled = false;
-//}
+        numeroTarjeta.disabled = false;
+        vencimiento.disabled = false;
+        cvc.disabled = false;
+        nombreTitular.disabled = false;
+        recordarTarjeta.disabled = false;
+
+        cuentaOrigen.disabled = true;
+        titularDestino.disabled = true;
+        inputGroupSelect01.disabled = true;
+        inputGroupSelect02.disabled = true;
+        numeroDestino.disabled = true;
+  });
+      document.getElementById('transferenciaBancaria').addEventListener('click', function(e) {
+        numeroTarjeta.value = "";
+        vencimiento.value = "";
+        cvc.value = "";
+        nombreTitular.value = "";
+        recordarTarjeta.value = "";
+        
+          numeroTarjeta.disabled = true;
+          vencimiento.disabled = true;
+          cvc.disabled = true;
+          nombreTitular.disabled = true;
+          recordarTarjeta.disabled = true;
+
+          cuentaOrigen.disabled = false;
+          titularDestino.disabled = false;
+          inputGroupSelect01.disabled = false;
+          inputGroupSelect02.disabled = false;
+          numeroDestino.disabled = false;
+  });
+}
+    
+
 
 function validateModal(){
-    let numeroTarjeta = document.getElementById('numeroTarjeta')
-    let vencimiento = document.getElementById('vencimiento')
-    let cvc = document.getElementById('cvc')
-    let nombreTitular = document.getElementById('nombreTitular')
 
-        if (numeroTarjeta.value === '' || numeroTarjeta.value === null) {
+        if (numeroTarjeta.value === '' && numeroTarjeta.disabled === false) {
             alert('Ingresar número de tarjeta')
         }
-        if (vencimiento.value === '' || vencimiento.value === null) {
+        if (vencimiento.value === '' && vencimiento.disabled === false) {
             alert('Ingresar vencimiento')
         }
-        if (cvc.value === '' || cvc.value === null) {
+        if (cvc.value === '' && cvc.disabled === false) {
             alert('Ingresar CVC')
         }
-        if (nombreTitular.value === '' || nombreTitular.value === null) {
+        if (nombreTitular.value === '' && nombreTitular.disabled === false) {
             alert('Ingresar nombre titular')
         }
-        //window.location.href="./Cart.html";
 
-        let cuentaOrigen = document.getElementById('cuentaOrigen')
-        let titularDestino = document.getElementById('titularDestino')
-        let inputGroupSelect01 = document.getElementById('inputGroupSelect01')
-        let inputGroupSelect02 = document.getElementById('inputGroupSelect02')
-        let numeroDestino = document.getElementById('numeroDestino')
-        
-    
-            if (cuentaOrigen.value === '' || cuentaOrigen.value === null) {
+            if (cuentaOrigen.value === '' && cuentaOrigen.disabled === false) {
                 alert('Ingresar cuenta de origen')
             }
-            if (titularDestino.value === '' || titularDestino.value === null) {
+            if (titularDestino.value === '' && titularDestino.disabled === false) {
                 alert('Ingresar titular de cuenta destino')
             }
-            if (inputGroupSelect01.value === '' || inputGroupSelect01.value === 0) {
+            if (inputGroupSelect01.value === '' && inputGroupSelect01.disabled === false) {
                 alert('Debe seleccionar banco')
                 inputGroupSelect01.focus();
             }
-            if (inputGroupSelect02.value === '' || inputGroupSelect02.value === 0) {
+            if (inputGroupSelect02.value === '' && inputGroupSelect02.disabled === false) {
                 alert('Debe seleccionar tipo de cuenta')
                 inputGroupSelect02.focus();
             }
-            if (numeroDestino.value === '' || numeroDestino.value === null) {
+            if (numeroDestino.value === '' && numeroDestino.disabled === false) {
                 alert('Ingresar número de cuenta destino')
             }
+        ;
+    ;
 
 }
 
@@ -92,7 +123,7 @@ function showCarrito(){
         <td>${article.name}</td>
         <td>${article.currency} </td>
         <td>${article.unitCost}</td>
-        <td><input type="number" min="1" value=${article.count} 
+        <td><input id="productCost" type="number" min="1" value=${article.count} 
         onchange="updateSubtotal(this.value, ${article.unitCost}, ${id})"></td>
         <td id="${id}" class="subtotal">${subtotal}</td>
         </tr>
@@ -114,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function(){
         showCarrito();
         updateTotalCosts();
     })
-
     document.getElementById("Premium").addEventListener("change", function(){
         comissionPercentage = 0.15;
         updateTotalCosts();
@@ -148,7 +178,6 @@ function updateTotal(){
 }
 
 function updateTotalCosts(){
-    for(let article of Carrito){
 
     let subtotalHTML = document.getElementById("subtotal");
     let comisionHTML = document.getElementById("comision");
@@ -160,7 +189,7 @@ function updateTotalCosts(){
         subtotal += parseInt(iterator.innerHTML);
     }
     document.getElementById("subtotal").innerHTML = "$" + subtotal;
-    
+
     let comissionToShow = Math.round(comissionPercentage * parseInt(subtotal));
     let totalCostToShow = (parseInt(subtotal) + comissionToShow);
 
@@ -168,7 +197,7 @@ function updateTotalCosts(){
     comisionHTML.innerHTML = MONEY_SYMBOL + comissionToShow;
     totalHTML.innerHTML = MONEY_SYMBOL + totalCostToShow;
 }
-}
+
 
 
    //Se obtiene el formulario de publicación de producto
