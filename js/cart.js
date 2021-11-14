@@ -1,6 +1,7 @@
 let Carrito = [];
 let comissionPercentage = 0.05;
 let MONEY_SYMBOL = "$";
+let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 let numeroTarjeta = document.getElementById('numeroTarjeta');
 let vencimiento = document.getElementById('vencimiento');
 let cvc = document.getElementById('cvc');
@@ -40,17 +41,17 @@ function selectPayForm(obj){
         nombreTitular.value = "";
         recordarTarjeta.value = "";
         
-          numeroTarjeta.disabled = true;
-          vencimiento.disabled = true;
-          cvc.disabled = true;
-          nombreTitular.disabled = true;
-          recordarTarjeta.disabled = true;
+        numeroTarjeta.disabled = true;
+        vencimiento.disabled = true;
+        cvc.disabled = true;
+        nombreTitular.disabled = true;
+        recordarTarjeta.disabled = true;
 
-          cuentaOrigen.disabled = false;
-          titularDestino.disabled = false;
-          inputGroupSelect01.disabled = false;
-          inputGroupSelect02.disabled = false;
-          numeroDestino.disabled = false;
+        cuentaOrigen.disabled = false;
+        titularDestino.disabled = false;
+        inputGroupSelect01.disabled = false;
+        inputGroupSelect02.disabled = false;
+        numeroDestino.disabled = false;
   });
 }
     
@@ -59,23 +60,23 @@ function selectPayForm(obj){
 function validateModal(){
 
         if (numeroTarjeta.value === '' && numeroTarjeta.disabled === false) {
-            alert('Ingresar número de tarjeta')
+            alert('Ingresar: Número de tarjeta')
         }
         if (vencimiento.value === '' && vencimiento.disabled === false) {
-            alert('Ingresar vencimiento')
+            alert('Ingresar: Vencimiento')
         }
         if (cvc.value === '' && cvc.disabled === false) {
             alert('Ingresar CVC')
         }
         if (nombreTitular.value === '' && nombreTitular.disabled === false) {
-            alert('Ingresar nombre titular')
+            alert('Ingresar: Nombre titular')
         }
 
             if (cuentaOrigen.value === '' && cuentaOrigen.disabled === false) {
-                alert('Ingresar cuenta de origen')
+                alert('Ingresar: Cuenta de origen')
             }
             if (titularDestino.value === '' && titularDestino.disabled === false) {
-                alert('Ingresar titular de cuenta destino')
+                alert('Ingresar: Titular de cuenta destino')
             }
             if (inputGroupSelect01.value === '' && inputGroupSelect01.disabled === false) {
                 alert('Debe seleccionar banco')
@@ -86,7 +87,7 @@ function validateModal(){
                 inputGroupSelect02.focus();
             }
             if (numeroDestino.value === '' && numeroDestino.disabled === false) {
-                alert('Ingresar número de cuenta destino')
+                alert('Ingresar: Número de cuenta destino')
             }
         ;
     ;
@@ -145,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function(){
         showCarrito();
         updateTotalCosts();
     })
+
     document.getElementById("Premium").addEventListener("change", function(){
         comissionPercentage = 0.15;
         updateTotalCosts();
@@ -244,7 +246,7 @@ function updateTotalCosts(){
            //Aquí ingresa si pasó los controles, irá a enviar
            //la solicitud para crear la publicación.
 
-           getJSONData(PUBLISH_PRODUCT_URL).then(function(resultObj){
+           getJSONData(CART_BUY_URL).then(function(resultObj){
                let msgToShowHTML = document.getElementById("resultSpan");
                let msgToShow = "";
    
